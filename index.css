@@ -27,7 +27,7 @@
 .card > img{
     width: 100%;
 }
-.RestaurentList{
+.restaurant-list{
     display: flex;
     flex-wrap: wrap;
 }
