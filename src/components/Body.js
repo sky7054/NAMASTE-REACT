@@ -1,62 +1,4 @@
-// import { restaurantList } from "./constants";
-// import RestaurantCard from "../restaurantCard";
-// import { useState } from "react";
-
-// function filterData(searchText, restaurants) {
-//   const filterData = restaurants.filter((restaurant) =>
-//    restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
-
-//   );
-//   return filterData;
-// }
-
-
-// const Body = () => {
-
-//   const [restaurants, setRestaurants] = useState(restaurantList);
-//   const[searchText,setSearchText] = useState("");
-//   return (
-    
-//     <>
-//     <div className="search-container">
-//       <input 
-//       type="text" 
-//       className = "search-input" 
-//       placeholder="search" 
-//       value={searchText}
-//       onChange = {(e) =>{
-//         setSearchText(e.target.value);
-        
-//       }}
-//       >
-     
-//     </input>
-
-//     <button
-//     className="search-btn"
-//     onClick={() => {
-//       // filter the data
-//       const data = filterData(searchText, restaurants);
-//       // update the state of restaurants list
-//       setRestaurants(data);
-//     }}>
-//       Search
-//       </button>
-//     </div>
-//     <div className="restaurant-list">
-//       {restaurantList.map((restaurant) => {
-//         return <RestaurantCard key={restaurant.data.id} {...restaurant.data} />;
-//       })}
-//     </div>
-//     </>
-//   );
-// };
-
- //export default Body;
-
-
-
- import { restaurantList } from "./constants";
+import { restaurantList } from "./constants";
 import RestaurantCard from "../RestaurantCard";
 import { useState } from "react";
 
@@ -107,3 +49,6 @@ const Body = () => {
 };
 
 export default Body;
+
+
+ 
