@@ -1,6 +1,6 @@
-import { restaurantList } from "./constants";
+import { restaurantList, swiggy_api_URL } from "./constants";
 import RestaurantCard from "../RestaurantCard";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -9,22 +9,34 @@ function filterData(searchText, restaurants) {
   return filterData;
 }
 
-// Body Component for body section: It contain all restaurant cards
-// We are mapping restaurantList array and passing JSON data to RestaurantCard component as props with unique key as index
 const Body = () => {
-  // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
+  
+  useEffect(()=>{
+  getRestaurants();
+  },[]);
+ 
+  
+  async function getRestaurants(){
+    const data = await fetch(swiggy_api_URL);
+    const json = await data.json();
+    console.log(json);
+    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+  console.log("render");
+
   return (
     <>
       <div className="search-container">
         <input
           type="text"
           className="search-input"
-          placeholder="Search a restaurant you want..."
+          placeholder="Search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
+       
         <button
           className="search-btn"
           onClick={() => {
