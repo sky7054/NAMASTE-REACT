@@ -27,18 +27,14 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
-  console.log("render");
   // Conditional Rendering
   // if restaurant is empty => shimmer UI
   // if restaurant has data => actual data UI
-  console.log("render");
 
   // not render components(Early Return)
   if(!allRestaurants) return null;
 
-  if(filteredRestaurants?.length === 0) return <h1>No Restaurant match your filter!</h1>;
-
-
+  
   return (allRestaurants?.length === 0) ? (<Shimmer/>) : (
     <>
       <div className="search-container">
