@@ -34,7 +34,9 @@ const Body = () => {
   // not render components(Early Return)
   if(!allRestaurants) return null;
 
-  
+
+
+
   return (allRestaurants?.length === 0) ? (<Shimmer/>) : (
     <>
       <div className="search-container">
