@@ -31,7 +31,7 @@ const Body = () => {
   const isOnline = useOnline();
 
   if(!isOnline){
-   return <h1>Sorry! please check your internet connection</h1>;
+   return alert("🙄Oops! No internet conection");
   }
 
   // Conditional Rendering
