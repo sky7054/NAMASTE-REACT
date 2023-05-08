@@ -2,6 +2,7 @@ import { restaurantList, swiggy_api_URL } from "./constants";
 import RestaurantCard from "../restaurantCard";
 import { useState,useEffect} from "react";
 import Shimmer from "./Shimmer";
+import useOnline from "../utils/useOnline";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -23,10 +24,16 @@ const Body = () => {
   async function getRestaurants(){
     const data = await fetch(swiggy_api_URL);
     const json = await data.json();
-    console.log(json);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
+
+  const isOnline = useOnline();
+
+  if(!isOnline){
+   return <h1>Sorry! please check your internet connection</h1>;
+  }
+
   // Conditional Rendering
   // if restaurant is empty => shimmer UI
   // if restaurant has data => actual data UI
