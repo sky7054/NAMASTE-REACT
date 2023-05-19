@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import Logo from "../assets/img/foodvilla.png";
 import { Link } from "react-router-dom";
-
+import UserContext from "../utils/UserContext";
 
 const loggedInUser = () =>{
   return false;
@@ -21,6 +21,9 @@ const Title = () => (
   const Header = () => {
 
     const[isLoggedIn,setIsLoggedIn] = useState(true);
+
+    const { user } = useContext(UserContext);
+
     return (
       <div className="header">
         <Title />
@@ -29,14 +32,15 @@ const Title = () => (
            <Link to ="/"><li>Home</li></Link> 
            <Link to ="/about"> <li>About</li></Link>
            <Link to = "/contact"><li>Contact</li></Link> 
-           <li>Cart</li>
-           <Link to ="/instamart">instaMart</Link>
+           <Link to = "/instaMart"><li>InstaMart</li></Link>
           </ul>
         </div>
-        {
-          (isLoggedIn? 
+        {user.name}
+        {(isLoggedIn? 
           <button onClick={() =>{ setIsLoggedIn(false)}}>logOut</button> :
             <button onClick={() =>{ setIsLoggedIn(true)}}>logIn</button>)
+
+           
         }
       </div>
     );

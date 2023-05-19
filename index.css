@@ -38,3 +38,14 @@
     padding: 10px;
     background-color:lightgray;
 }
+
+.InstaMart{
+    padding: 2px;
+    margin: 2px;
+}
+.section-border{
+    border: 1px solid black;
+    margin: 2px;
+    padding: 2px;
+
+}

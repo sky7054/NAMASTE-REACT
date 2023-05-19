@@ -1,7 +1,8 @@
 //import { Outlet } from "react-router-dom";
 import React from "react";
 import ProfileFunctionComponent from "./Profile";
-import Profile from "./ProfileClass";
+//import Profile from "./ProfileClass";
+import UserContext from "../utils/UserContext";
 
 // const About = ()=>{
 //     return(
@@ -35,6 +36,14 @@ class About extends React.Component{
         return(
             <div>
              <h1>This is About Us pages</h1>
+
+            <UserContext.Consumer>
+            {
+                ({user}) => <h4>{user.name} - {user.Email_id}</h4>
+            }
+            </UserContext.Consumer>
+
+
              <p>this is made by Akash Yadav which is worked on it</p>
              <ProfileFunctionComponent/>
              {/* <Outlet/> */}

@@ -1,8 +1,9 @@
 import { restaurantList, swiggy_api_URL } from "./constants";
-import RestaurantCard from "../restaurantCard";
-import { useState,useEffect} from "react";
+import RestaurantCard from "./RestaurantCard";
+import { useState,useEffect, useContext} from "react";
 import Shimmer from "./Shimmer";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -15,7 +16,9 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const[allRestaurants,setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  
+  const {user,setUser} = useContext(UserContext);
+
+
   useEffect(()=>{
   getRestaurants();
   },[]);
@@ -66,11 +69,23 @@ const Body = () => {
         >
           Search
         </button>
+        <input value={user.name} onChange={ e=>setUser({
+          ...user,
+          name:e.target.value,
+        })
+        }></input>
+
+<input value={user.Email_id} onChange={ e=>setUser({
+          ...user,
+          Email_id:e.target.value,
+        })
+        }></input>
+
       </div>
       <div className="restaurant-list">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+            <RestaurantCard key={restaurant.data.id} {...restaurant.data}/>
           );
         })}
       </div>
