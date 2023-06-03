@@ -12,6 +12,11 @@
 
 .nav-items > ul >li {
     padding: 10px;
+    text-decoration: none;
+}
+.nav-items-p{
+    padding-left: 10px;
+    
 }
 
 .logo{
@@ -48,4 +53,17 @@
     margin: 2px;
     padding: 2px;
 
+}
+.add-items-button{
+    justify-content: center;
+    padding: 4px;
+    margin: 4px;
+    background-color:blue;
+    color: white;
+}
+.Clear-btn{
+    padding: 4px;
+    margin: 4px;
+    background-color:blue;
+    color: white;
 }

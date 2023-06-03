@@ -69,7 +69,7 @@ const Body = () => {
         >
           Search
         </button>
-        <input value={user.name} onChange={ e=>setUser({
+        {/* <input value={user.name} onChange={ e=>setUser({
           ...user,
           name:e.target.value,
         })
@@ -79,7 +79,7 @@ const Body = () => {
           ...user,
           Email_id:e.target.value,
         })
-        }></input>
+        }></input> */}
 
       </div>
       <div className="restaurant-list">
@@ -89,6 +89,7 @@ const Body = () => {
           );
         })}
       </div>
+      
     </>
   );
 };
